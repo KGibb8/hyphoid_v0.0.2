@@ -1,8 +1,12 @@
 # Hyphoid
 
-A resource-based mining game set on a grid
+A resource-based mining game set on a grid. Game concept a fusion of Tribal Wars and Pandemic. Attempt to model in game for a woodland ecosystem from the perspective of Fungi and Trees.
 
-The idea for the game is based on some of my favourite computer-based strategy games such as Tribal Wars, Dungeon Keeper, Age of Empires and Civilisation and board games such as Pandemic. The aim is to encompass my passion for ecology with encouraging others to better understanding and appreciating the Earth's ecosystems, especially the role of mycorrhizal fungi. The aim of the game is to build subsoil colonies and mine nutrients from these mycelial hubs, connect with Trees to access normally inaccessible resources and connect all the trees in the forest.
+The aim of the game depends on the perspective and role of the player in-game:
+
+ a) To build subsoil colonies and mine nutrients based out of these mycelial "hubs", connect trees to access normally inaccessible resources and connect all the trees in the forest.
+
+ b) Parasitise the mycorrhizae and trees, destroy mycorrhizal networks, isolate and destroy individual trees and mycorrhizae using their own resources against them.
 
 <p align="center">
   <img src="http://images.universityherald.com/data/images/full/5277/mycorrhizal-fungi.jpg" width="700"/>
