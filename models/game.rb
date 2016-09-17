@@ -15,6 +15,7 @@ class Game < ActiveRecord::Base
       begin
         random_lat = rand(0...self.map_size)
         random_long = rand(0...self.map_size)
+        # Shouldnt this map be instance variable?
         random_location = map[random_lat][random_long]
         redo unless random_location.mycelium.nil?
         player.mycorrhiza.create!(location: random_location)
@@ -34,6 +35,7 @@ class Game < ActiveRecord::Base
         # location.update(lat: lat+1, long: long+1)
       end
     end
+
     top = Array.new
     bottom = Array.new
     (1..map_size + 2).each do |x|

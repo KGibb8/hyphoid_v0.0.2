@@ -34,67 +34,56 @@ module SeedData
       @player21 = Player.create!(username: "Sand Circles")
       @player22 = Player.create!(username: "Archmage Ged")
       @player23 = Player.create!(username: "Sarevok")
-      @player24 = Player.create!(username: "Conforce")
-      @player25 = Player.create!(username: "Sand Circles")
-      @player26 = Player.create!(username: "Archmage Ged")
-      @player27 = Player.create!(username: "Sarevok")
+      @player24 = Player.create!(username: "Atredies")
+      @player25 = Player.create!(username: "Skywalker")
+      @player26 = Player.create!(username: "Han Solo")
+      @player27 = Player.create!(username: "Gorion")
 
       # GameSession 1
-      # @player1.games.create!
+      @game1 = Game.create!
 
+      # Adding players to GameSession 1
+      @game1.player_sessions.create!(player: @player1)
+      @game1.player_sessions.create!(player: @player2)
+      @game1.player_sessions.create!(player: @player3)
 
-      #
-      # @game1 = Game.create!(map_size: 5)
-      #
-      # # GameSession 2
-      # @game2 = Game.create!(map_size: 15)
-      #
-      #
-      # # Adding players to GameSession 1
-      # @game1.player_sessions.create!(player: @player1)
-      # @game1.player_sessions.create!(player: @player2)
-      # @game1.player_sessions.create!(player: @player3)
-      #
-      #
-      # # Adding players to GameSession 2
-      # @game2.player_sessions.create!(player: @player4)
-      # @game2.player_sessions.create!(player: @player5)
-      # @game2.player_sessions.create!(player: @player6)
-      # @game2.player_sessions.create!(player: @player7)
-      # @game2.player_sessions.create!(player: @player8)
-      # @game2.player_sessions.create!(player: @player9)
-      # @game2.player_sessions.create!(player: @player10)
-      # @game2.player_sessions.create!(player: @player11)
+      # GameSession 2
+      @game2 = Game.create!
 
+      # Adding players to GameSession 2
+      @game2.player_sessions.create!(player: @player4)
+      @game2.player_sessions.create!(player: @player5)
+      @game2.player_sessions.create!(player: @player6)
+      @game2.player_sessions.create!(player: @player7)
+      @game2.player_sessions.create!(player: @player8)
+      @game2.player_sessions.create!(player: @player9)
+      @game2.player_sessions.create!(player: @player10)
+      @game2.player_sessions.create!(player: @player11)
+
+      @game3 = Game.create!
 
       # Adding players to GameSession 3
-      # @game3.player_sessions.create!(player: @player12)
-      # @game3.player_sessions.create!(player: @player13)
-      # @game3.player_sessions.create!(player: @player14)
-      # @game3.player_sessions.create!(player: @player15)
-      # @game3.player_sessions.create!(player: @player16)
-      # @game3.player_sessions.create!(player: @player17)
-      # @game3.player_sessions.create!(player: @player18)
-      # @game3.player_sessions.create!(player: @player19)
-      # @game3.player_sessions.create!(player: @player20)
-      # @game3.player_sessions.create!(player: @player21)
-      # @game3.player_sessions.create!(player: @player22)
-      # @game3.player_sessions.create!(player: @player23)
-      # @game3.player_sessions.create!(player: @player24)
-      # @game3.player_sessions.create!(player: @player25)
-      # @game3.player_sessions.create!(player: @player26)
-      # @game3.player_sessions.create!(player: @player27)
+      @game3.player_sessions.create!(player: @player12)
+      @game3.player_sessions.create!(player: @player13)
+      @game3.player_sessions.create!(player: @player14)
+      @game3.player_sessions.create!(player: @player15)
+      @game3.player_sessions.create!(player: @player16)
+      @game3.player_sessions.create!(player: @player17)
+      @game3.player_sessions.create!(player: @player18)
+      @game3.player_sessions.create!(player: @player19)
+      @game3.player_sessions.create!(player: @player20)
+      @game3.player_sessions.create!(player: @player21)
+      @game3.player_sessions.create!(player: @player22)
+      @game3.player_sessions.create!(player: @player23)
+      @game3.player_sessions.create!(player: @player24)
+      @game3.player_sessions.create!(player: @player25)
+      @game3.player_sessions.create!(player: @player26)
+      @game3.player_sessions.create!(player: @player27)
 
 
 ################################################################################
 ################################################################################
 
-      # New game starts upon players joining @game1 - GameSession initialises grid
-
-
-      # Its not clearing the brain cells properly or the sequence of mycelia
-      # creation & location association is messed up as I just ran it and one
-      # of them has TWO mycelia instead of one.
 
     end
   end

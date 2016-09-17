@@ -1,0 +1,3 @@
+<% @games.each do |game| %>
+  Game <%= link_to game.id, url(:games, :edit, game.id) %><br>
+<% end %>

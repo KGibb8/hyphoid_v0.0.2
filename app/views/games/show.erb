@@ -1,0 +1,40 @@
+<html>
+<head>
+  <style>
+    body {
+      background: black;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      height: 100%;
+    }
+    th {
+      height: 50px;
+    }
+    td {
+      height: 40px;
+      border: 1px solid white;
+      border-spacing: 0;
+     }
+  </style>
+</head>
+<body>
+
+  Game <%= @game.id %>
+
+<div>
+  <table>
+    <% (1..@sqrt).each do |lat| %>
+      <tr>
+        <% (1..@sqrt).each do |long| %>
+          <td>
+            <%= @game.locations.find_by(lat: lat, long: long).id %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</body>
+</html>
