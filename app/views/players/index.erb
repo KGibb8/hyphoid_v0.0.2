@@ -1,0 +1,11 @@
+<div>
+  <% @players.each do |player| %>
+  <div class="box">
+    <h2>Player: <%= link_to player.username, url(:players, :edit, player.id) %><br></h2>
+    <p>Current games:</p>
+    <% player.player_sessions.each do |session| %>
+      <p>Game <%= link_to session.game.id, url(:games, :edit, session.game.id) %></p><br>
+    <% end %>
+  </div>
+  <% end %>
+</div>

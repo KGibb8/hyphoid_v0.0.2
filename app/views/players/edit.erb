@@ -1,0 +1,6 @@
+<div class="box">
+  <h3><%= @player.username %></h3>
+  <% @player.player_sessions.each do |session| %>
+    Game <%= link_to session.game.id, url(:games, :edit, session.game.id) %><br>
+  <% end %>
+</div>

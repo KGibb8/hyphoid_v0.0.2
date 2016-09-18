@@ -3,7 +3,44 @@ module HyphoidV002
     use ConnectionPoolManagement
     register Padrino::Mailer
     register Padrino::Helpers
+    layout :main
     enable :sessions
+
+    set :views, './app/views/'
+
+    def current_user
+      Player.find_by(id: session[:user_id])
+    end
+
+    get :home, :map => '/' do
+      render 'home'
+    end
+
+    get :show, :map => '/players/:id' do
+
+    end
+
+    post :login do
+      @player = Player.find_by(username: params[:username])
+      @player = @player.authenticate(params[:password])
+      unless @player
+        redirect url(:home)
+      else
+        redirect url('/games')
+      end
+    end
+
+    post :signup do
+      @player = Player.create(params)
+      session[:player_id] = @player.id.to_s
+      redirect url('/games') #WHERE TO??
+    end
+
+
+    # post '/logout' do
+    #   session[:user_id] = nil
+    #   redirect url(:home)
+    # end
 
     ##
     # Caching support.

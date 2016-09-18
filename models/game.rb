@@ -5,25 +5,24 @@ class Game < ActiveRecord::Base
 
   after_save :initialize_map
 
-  # validate :four_to_start
-
   attr_accessor :map
 
   def generate_starting_locations
     rand = Random.new
-    self.players.each do |player|
+    self.player_sessions.each do |player_session|
       begin
         random_lat = rand(0...self.map_size)
         random_long = rand(0...self.map_size)
         # Shouldnt this map be instance variable?
         random_location = map[random_lat][random_long]
-        redo unless random_location.mycelium.nil?
-        player.mycorrhiza.create!(location: random_location)
+        redo unless random_location.mycorrhiza.nil?
+        player_session.mycorrhizas.create!(location: random_location)
       rescue => e
         puts e.inspect
       end
       # Perhaps better to have an exception handler?
     end
+    self.start_time = Time.now
     self.in_session = true
   end
 

@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="box" style="float: right;">
+        <h2>Log In</h2>
+        <% form_tag '/login', method: :post do %>
+          Username: <%= input_tag :text, name: :username %><br>
+          Password: <%= input_tag :password, name: :password %><br>
+          <%= submit_tag 'Login', class: 'button' %>
+        <% end %>
+      </div>
+      <div class="box" style="float: right;">
+        <h2>Sign Up</h2>
+        <% form_tag '/players/create', method: :post do %>
+          Username: <%= input_tag :text, name: :username %><br>
+          Password: <%= input_tag :password, name: :password %><br>
+          <%= submit_tag 'Sign Up', class: 'button' %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+
+  <div style="">
+    <%= image_tag("banner.png", :alt => "banner") %>
+  </div>
+
+  <div>
+    <%= image_tag("banner1.png", :alt => "banner") %><br>
+  </div>
+
+  <!-- <div>
+    <img id="icon" src="/images/badassfungi.png"/>
+  </div> -->
+
+
+</body>
+</html>

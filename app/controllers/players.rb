@@ -1,30 +1,12 @@
 HyphoidV002::App.controllers :players do
-
-  # get :index, :map => '/foo/bar' do
-  #   session[:foo] = 'bar'
-  #   render 'index'
-  # end
-
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
+  layout :main
 
   get :index do
-    @players = Player.all.order(:name)
+    @players = Player.all.order(:username)
     render 'index'
   end
 
-  get :show, map: 'players/id' do
+  get :show, :with => :id do
     @player = Player.find(params[:id])
     render 'show'
   end
@@ -35,20 +17,22 @@ HyphoidV002::App.controllers :players do
     render 'new'
   end
 
-  post :create, map: "/players" do
-    # This works with form tags like: <input type="text" name="[car]model"
-    Player.create(params[:player])
+  post :create do
+    # TODO: LORIN WHAT DO WE DO WITH THE AUTHENTICITY TOKEN??
+    @player = Player.create(username: params[:username], password: params[:password])
     redirect url(:index)
   end
 
   # /players/edit
   get :edit, map: '/players/:id/edit' do
     @player = Player.find(params[:id])
+    @games = Game.all.order(:id)
     render 'edit'
   end
 
   patch :update, map: '/players/:id' do
     player = Player.find(params[:id])
+    params[:player]["game_ids"] -= ["-1"]
     player.update(params[:player])
     redirect url(:index)
   end
@@ -60,4 +44,5 @@ HyphoidV002::App.controllers :players do
     player.destroy
     redirect url(:index)
   end
+
 end

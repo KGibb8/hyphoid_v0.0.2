@@ -1,35 +1,18 @@
 <html>
 <head>
-  <style>
-    body {
-      background: black;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      height: 100%;
-    }
-    th {
-      height: 50px;
-    }
-    td {
-      height: 40px;
-      border: 1px solid white;
-      border-spacing: 0;
-     }
-  </style>
 </head>
 <body>
 
-  Game <%= @game.id %>
+<h2>Game <%= @game.id %></h2>
 
 <div>
   <table>
-    <% (1..@sqrt).each do |lat| %>
+    <% @sqrt.times do |lat| %>
       <tr>
-        <% (1..@sqrt).each do |long| %>
+        <% @sqrt.times do |long| %>
           <td>
-            <%= @game.locations.find_by(lat: lat, long: long).id %>
+            <% @location = @game.locations.find_by(lat: lat+1, long: long+1) %>
+            <%= @location.id %>
           </td>
         <% end %>
       </tr>

@@ -1,4 +1,6 @@
 HyphoidV002::App.controllers :games do
+  layout :main
+  
 
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
@@ -45,12 +47,14 @@ HyphoidV002::App.controllers :games do
   # /games/edit
   get :edit, map: '/games/:id/edit' do
     @game = Game.find(params[:id])
+    @players = Player.all.order(:username)
     @sqrt = Math.sqrt(@game.locations.count).to_i
     render 'edit'
   end
 
   patch :update, map: '/games/:id' do
     game = Game.find(params[:id])
+    params[:game]["player_ids"] -= ["-1"]
     game.update(params[:game])
     redirect url(:index)
   end

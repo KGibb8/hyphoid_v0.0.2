@@ -4,7 +4,10 @@ require './spec/seed_data_helper'
 
 RSpec.describe Game do
   before do
-    extend SeedData
+    @player11 = Player.create!(username: "mr_rabbit", password: "1234")
+    @player12 = Player.create!(username: "dingbat", password: "1234")
+    @player13 = Player.create!(username: "DORK", password: "1234")
+    @player14 = Player.create!(username: "womble118", password: "1234")
   end
 
   context "-- creating a new game" do
@@ -31,9 +34,11 @@ RSpec.describe Game do
     # Blank form Game.new created. Players added. Can only become a valid game if players >= 4
 
     context "-- with valid creation criteria" do
-      it "-- should increase the size of the map relative to the number of players involved in the session" do # BY WHAT RATIO?
+      before do
         @game = Game.create
         @game.player_sessions.create(player: @player15)
+      end
+      it "-- should increase the size of the map relative to the number of players involved in the session" do # BY WHAT RATIO?
         expect(@game.locations.count).to eq(9)
         @game.player_sessions.create(player: @player16)
         expect(@game.locations.count).to eq(25)
@@ -47,16 +52,21 @@ RSpec.describe Game do
 
       end
       it "-- should generate a single random starting location for each player on the map" do
-
+        @game.generate_starting_locations
+        player_session = @game.player_sessions.last
+        location = player_session.mycorrhizas.last.location
+        expect(location).to_not be_nil
       end
       it "-- should ensure that players and trees cannot be placed in colliding starting locations" do
 
       end
       it "-- should set the game's start time upon initialisation" do
-
+        @game.generate_starting_locations
+        expect(@game.start_time).to_not be_nil
       end
       it "-- should mark the game as in session" do
-
+        @game.generate_starting_locations
+        expect(@game.in_session).to be_truthy
       end
     end
     context "-- with invalid creation criteria" do

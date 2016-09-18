@@ -26,20 +26,21 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "locations", force: :cascade do |t|
     t.integer  "game_id"
+    t.integer  "mycorrhiza_id"
     t.string   "lat"
     t.string   "long"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "mycorrhizas", force: :cascade do |t|
     t.integer  "player_session_id"
-    t.integer  "proteins"
-    t.integer  "sugars"
-    t.integer  "nitrates"
-    t.integer  "carbon"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "proteins",          default: 100
+    t.integer  "sugars",            default: 50
+    t.integer  "nitrates",          default: 100
+    t.integer  "carbon",            default: 100
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "player_sessions", force: :cascade do |t|

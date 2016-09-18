@@ -1,3 +1,14 @@
-<% @games.each do |game| %>
-  Game <%= link_to game.id, url(:games, :edit, game.id) %><br>
+<% if current_user %>
+    <h2>Logged in as <%= current_user.name %></h2>
 <% end %>
+
+<div>
+  <% @games.each do |game| %>
+  <div class="box">
+    <h2>Game <%= link_to game.id, url(:games, :edit, game.id) %></h2>
+    <% game.players.each do |player| %>
+      <%= link_to player.username, url(:players, :edit, player.id) %><br>
+    <% end %>
+  </div>
+  <% end %>
+</div>

@@ -2,6 +2,7 @@ class CreateLocations < ActiveRecord::Migration
   def self.up
     create_table :locations do |t|
       t.references :game
+      t.references :mycorrhiza
       t.string :lat
       t.string :long
       t.timestamps null: false

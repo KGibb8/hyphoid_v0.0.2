@@ -22,6 +22,7 @@ gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
 gem 'pry-byebug'
 
+
 # Test requirements
 gem 'rspec', :group => 'test'
 gem 'rack-test', :require => 'rack/test', :group => 'test'
@@ -36,3 +37,6 @@ gem 'padrino', '0.13.3.2'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.13.3.2'
 # end
+
+gem 'bcrypt'
+

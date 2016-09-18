@@ -11,33 +11,35 @@ module SeedData
       Game.destroy_all
 
       # Players
-      @player1 = Player.create!(username: "Mycophile")
-      @player2 = Player.create!(username: "Dendrophile")
-      @player3 = Player.create!(username: "Fignut")
-      @player4 = Player.create!(username: "Tomhead")
-      @player5 = Player.create!(username: "Blackberry")
-      @player6 = Player.create!(username: "Applebum")
-      @player7 = Player.create!(username: "Hoglet")
-      @player8 = Player.create!(username: "Fantastic Mr. Fox")
-      @player9 = Player.create!(username: "Mr. Vole")
-      @player10 = Player.create!(username: "Mr Fieldmouse")
-      @player11 = Player.create!(username: "Mr Rabbit")
-      @player12 = Player.create!(username: "Dingbat")
-      @player13 = Player.create!(username: "DORK")
-      @player14 = Player.create!(username: "Womble118")
-      @player15 = Player.create!(username: "Yeasayer")
-      @player16 = Player.create!(username: "Spider42")
-      @player17 = Player.create!(username: "The Infinite Improbability Drive")
-      @player18 = Player.create!(username: "Whacko Jacko")
-      @player19 = Player.create!(username: "Fun With Needles")
-      @player20 = Player.create!(username: "Conforce")
-      @player21 = Player.create!(username: "Sand Circles")
-      @player22 = Player.create!(username: "Archmage Ged")
-      @player23 = Player.create!(username: "Sarevok")
-      @player24 = Player.create!(username: "Atredies")
-      @player25 = Player.create!(username: "Skywalker")
-      @player26 = Player.create!(username: "Han Solo")
-      @player27 = Player.create!(username: "Gorion")
+
+      @admin = Player.create!(email: "admin@hyphoid.net", username: "admin", password: "admin", password_confirmation: "admin")
+      @player1 = Player.create!(username: "mycophile", password: "1234")
+      @player2 = Player.create!(username: "dendrophile", password: "1234")
+      @player3 = Player.create!(username: "fignut", password: "1234")
+      @player4 = Player.create!(username: "tomhead", password: "1234")
+      @player5 = Player.create!(username: "blackberry", password: "1234")
+      @player6 = Player.create!(username: "applebum", password: "1234")
+      @player7 = Player.create!(username: "hoglet", password: "1234")
+      @player8 = Player.create!(username: "fantastic_mr_fox", password: "1234")
+      @player9 = Player.create!(username: "mr_vole", password: "1234")
+      @player10 = Player.create!(username: "mr_fieldmouse", password: "1234")
+      @player11 = Player.create!(username: "mr_rabbit", password: "1234")
+      @player12 = Player.create!(username: "dingbat", password: "1234")
+      @player13 = Player.create!(username: "DORK", password: "1234")
+      @player14 = Player.create!(username: "womble118", password: "1234")
+      @player15 = Player.create!(username: "yeasayer", password: "1234")
+      @player16 = Player.create!(username: "spider42", password: "1234")
+      @player17 = Player.create!(username: "the_infinite_improbability_drive", password: "1234")
+      @player18 = Player.create!(username: "whacko_jacko", password: "1234")
+      @player19 = Player.create!(username: "fun_with_needles", password: "1234")
+      @player20 = Player.create!(username: "conforce", password: "1234")
+      @player21 = Player.create!(username: "sand_circles", password: "1234")
+      @player22 = Player.create!(username: "archmage_ged", password: "1234")
+      @player23 = Player.create!(username: "sarevok", password: "1234")
+      @player24 = Player.create!(username: "atredies", password: "1234")
+      @player25 = Player.create!(username: "skywalker", password: "1234")
+      @player26 = Player.create!(username: "han_solo", password: "1234")
+      @player27 = Player.create!(username: "gorion", password: "1234")
 
       # GameSession 1
       @game1 = Game.create!
@@ -84,6 +86,14 @@ module SeedData
 ################################################################################
 ################################################################################
 
+      # @session = @player12.player_sessions.find_by(game_id: @game3.id)
+      # @session.mycorrhizas.create!(location: @game3.map[16][21])
+
+      @game1.generate_starting_locations
+      @game2.generate_starting_locations
+      @game3.generate_starting_locations
+
+      binding.pry
 
     end
   end
